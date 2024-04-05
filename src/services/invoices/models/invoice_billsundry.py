@@ -12,6 +12,7 @@ class InvoiceBillSundry(BaseModel):
     id = UUIDField(constraints=[SQL('DEFAULT gen_random_uuid()')], primary_key = True)
     bill_sundry_name = CharField(index = True)
     amount = FloatField()
+    invoice_id = ForeignKeyField(Invoice, backref='invoice_bill_sundry')
     created_at = DateTimeField(default = datetime.datetime.now)
     updated_at = DateTimeField(default = datetime.datetime.now)
 

@@ -15,6 +15,7 @@ class InvoiceItems(BaseModel):
     quantity = FloatField()
     price = FloatField()
     amount = FloatField()
+    invoice_id = ForeignKeyField(Invoice, backref='invoice_items')
     created_at = DateTimeField(default = datetime.datetime.now)
     updated_at = DateTimeField(default = datetime.datetime.now)
 

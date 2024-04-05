@@ -17,18 +17,6 @@ class Invoice(BaseModel):
     shipping_address = TextField()
     GSTIN = TextField() 
     total_amount = FloatField()
-    invoice_item_ids = ArrayField(
-        constraints=[SQL("DEFAULT '{}'::uuid[]")],
-        field_class=UUIDField,
-        index=True,
-        null=True,
-    )
-    invoice_bill_sundry_ids = ArrayField(
-        constraints=[SQL("DEFAULT '{}'::uuid[]")],
-        field_class=UUIDField,
-        index=True,
-        null=True,
-    )
     created_at = DateTimeField(default = datetime.datetime.now)
     updated_at = DateTimeField(default = datetime.datetime.now)
     is_active = BooleanField(default=True)
